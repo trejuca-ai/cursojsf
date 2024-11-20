@@ -4,6 +4,37 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
       
-      <H1>Hola jakarta faces</H1>
+		
+	<h:panelGrid border="1">
+		<h:dataTable
+			value="#{customerController.customerList}"
+			var="customer">
+			
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{customer.id}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Primer nombre</f:facet>
+				<h:outputText value="#{customer.firstName}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Apellido</f:facet>
+				<h:outputText value="#{customer.lastName}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Correo electronico</f:facet>
+				<h:outputText value="#{customer.email}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Activo</f:facet>
+				<h:outputText value="#{customer.active}"/>
+			</h:column>
+		</h:dataTable>
+	</h:panelGrid>
 </html>
       

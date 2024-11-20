@@ -5,5 +5,54 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
       
 		
+	<h:panelGrid border="1">
+		<h:dataTable
+			value="#{customerController.customerList}"
+			var="customer">
+			
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{customer.id}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Primer nombre</f:facet>
+				<h:outputText value="#{customer.firstName}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Apellido</f:facet>
+				<h:outputText value="#{customer.lastName}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Correo electronico</f:facet>
+				<h:outputText value="#{customer.email}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Activo</f:facet>
+				<h:outputText value="#{customer.active}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Acciones</f:facet>
+				<h:commandButton
+					id="deleteButton"
+					action="#{customerController.delete}"
+					value="Eliminar">
+				</h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Acciones</f:facet>
+				<h:commandLink
+					id="updateLink"
+					action="#{customerController.edit}">
+					<h:outputText value="Editar"/>
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:panelGrid>
 </html>
       

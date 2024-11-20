@@ -28,8 +28,10 @@ public class Customer {
 	@Column(name = "email")
 	private String email;
 	@Column(name = "active")
-	private Boolean active;
+	private Character active;
 	@Column(name = "address_id")
 	private Integer addressId;
 
+	
+	
 }

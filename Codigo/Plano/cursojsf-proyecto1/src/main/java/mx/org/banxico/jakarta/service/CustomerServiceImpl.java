@@ -22,4 +22,19 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerRepository.findAll();
 	}
 
+	@Override
+	public void update(Customer customer) {
+		customerRepository.update(customer);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		customerRepository.delete(id);
+	}
+
+	@Override
+	public Customer findById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

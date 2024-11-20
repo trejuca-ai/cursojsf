@@ -17,11 +17,20 @@ public class CustomerController {
 
 	@Inject
 	private CustomerService customerService;
-	
+
 	private List<Customer> customerList;
 	
 	@PostConstruct
 	public void init() {
 		setCustomerList(customerService.findAll());
+	}
+	
+	public String delete(Integer id) {
+		customerService.delete(id);
+		return "";
+	}
+	
+	public String edit(Integer id) {
+		return "";
 	}
 }
