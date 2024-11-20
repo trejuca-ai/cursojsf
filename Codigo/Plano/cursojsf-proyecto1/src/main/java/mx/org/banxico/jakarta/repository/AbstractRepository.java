@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -13,7 +14,8 @@ public abstract class AbstractRepository<T> {
 
 	private Class<T> entityClass;
 	
-	@Inject
+	//@Inject
+	@PersistenceContext(unitName = "default-pu")
 	private EntityManager em;
 	
 	public AbstractRepository(Class<T> entityClass) {

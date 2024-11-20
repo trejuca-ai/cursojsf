@@ -8,5 +8,6 @@ public interface CustomerService {
 	public List<Customer> findAll();
 	public void update(Customer customer);
 	public void delete(Integer id);
-	public Customer findById();
+	public Customer findById(Integer id);
+	public void save(Customer customer);
 }

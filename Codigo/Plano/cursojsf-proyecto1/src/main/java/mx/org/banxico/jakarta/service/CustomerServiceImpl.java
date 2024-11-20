@@ -1,7 +1,9 @@
 package mx.org.banxico.jakarta.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -11,10 +13,11 @@ import mx.org.banxico.jakarta.repository.Repository;
 
 @RequestScoped
 @Named
-@Transactional
+//@Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-	@Inject
+	//@Inject
+	@EJB(beanName = "customerRepositoryImpl")
 	private Repository<Customer> customerRepository;
 	
 	@Override
@@ -33,8 +36,31 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer findById() {
-		// TODO Auto-generated method stub
-		return null;
+	public Customer findById(Integer id) {
+
+		Optional<Customer> customer = customerRepository.findById(id);
+//		Customer c = customer.orElseThrow(() -> new RuntimeException(
+//				"No se encontro el customer con el id"));
+//		
+		return customer.get();
 	}
+
+	@Override
+	public void save(Customer customer) {
+		customer.setAddressId(1);
+		customer.setStoreId(1);
+		customer.setActive('1');
+		
+//		Customer c1 = new Customer();
+//		c1.setFirstName(customer.getFirstName());
+//		c1.setLastName(customer.getLastName());
+//		c1.setActive('1');
+//		c1.setEmail(customer.getEmail());
+//		c1.setStoreId(1);
+//		c1.setAddressId(1);
+		
+		customerRepository.save(customer);
+	}
+
+
 }

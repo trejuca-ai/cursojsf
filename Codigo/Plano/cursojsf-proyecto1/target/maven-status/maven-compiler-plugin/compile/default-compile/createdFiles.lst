@@ -1,10 +1,15 @@
 mx\org\banxico\jakarta\repository\AbstractRepository.class
+mx\org\banxico\jakarta\helper\EntityManagerHelper.class
+mx\org\banxico\jakarta\configuration\BeansRequestConfiguration.class
+mx\org\banxico\jakarta\entity\Address.class
+mx\org\banxico\jakarta\controller\CustomerFormController.class
+mx\org\banxico\jakarta\dto\CustomerDto.class
 mx\org\banxico\jakarta\repository\CustomerRepositoryImpl.class
 mx\org\banxico\jakarta\repository\Repository.class
-mx\org\banxico\jakarta\helper\EntityManagerHelper.class
 mx\org\banxico\jakarta\service\CustomerService.class
 mx\org\banxico\jakarta\service\CustomerServiceImpl.class
-mx\org\banxico\jakarta\entity\Address.class
+mx\org\banxico\jakarta\service\AddressServiceImpl.class
 mx\org\banxico\jakarta\entity\Customer.class
 mx\org\banxico\jakarta\entity\City.class
 mx\org\banxico\jakarta\controller\CustomerController.class
+mx\org\banxico\jakarta\service\AddressService.class

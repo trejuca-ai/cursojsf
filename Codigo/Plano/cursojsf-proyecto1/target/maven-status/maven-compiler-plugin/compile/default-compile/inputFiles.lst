@@ -1,4 +1,7 @@
+C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\configuration\BeansRequestConfiguration.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\controller\CustomerController.java
+C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\controller\CustomerFormController.java
+C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\dto\CustomerDto.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\entity\Address.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\entity\City.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\entity\Customer.java
@@ -6,5 +9,7 @@ C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\repository\AbstractRepository.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\repository\CustomerRepositoryImpl.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\repository\Repository.java
+C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\service\AddressService.java
+C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\service\AddressServiceImpl.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\service\CustomerService.java
 C:\Users\treju\eclipse-workspace-cursos\cursojsf-proyecto1\src\main\java\mx\org\banxico\jakarta\service\CustomerServiceImpl.java
