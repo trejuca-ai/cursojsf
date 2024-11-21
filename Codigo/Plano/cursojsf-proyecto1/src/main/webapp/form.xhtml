@@ -35,6 +35,8 @@
 				<h:commandButton
 					value="Guardar"
 					action="#{customerFormController.save}"/>
+					
+				<h:inputHidden value="#{customerFormController.customer.id}"/>
 			</h:panelGrid>
 		</h:form>
 	</h:panelGrid>

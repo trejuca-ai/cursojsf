@@ -31,6 +31,6 @@ public class CustomerController {
 	public String delete(Integer id) {
 		System.out.println("id: " + id);
 		customerService.delete(id);
-		return "index.xhtml";
+		return "index.xhtml?faces-redirect=true";
 	}
 }

@@ -51,15 +51,12 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.setStoreId(1);
 		customer.setActive('1');
 		
-//		Customer c1 = new Customer();
-//		c1.setFirstName(customer.getFirstName());
-//		c1.setLastName(customer.getLastName());
-//		c1.setActive('1');
-//		c1.setEmail(customer.getEmail());
-//		c1.setStoreId(1);
-//		c1.setAddressId(1);
+		if (customer.getId() != null) {
+			customerRepository.update(customer);
+		} else {
+			customerRepository.save(customer);
+		}
 		
-		customerRepository.save(customer);
 	}
 
 
