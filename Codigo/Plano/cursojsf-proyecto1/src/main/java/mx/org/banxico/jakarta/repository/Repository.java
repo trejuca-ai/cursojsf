@@ -12,4 +12,5 @@ public interface Repository<T> {
 	public void delete(Integer id);
 	public Optional<T> findById(Integer id);
 	public List<T> findAll();
+
 }

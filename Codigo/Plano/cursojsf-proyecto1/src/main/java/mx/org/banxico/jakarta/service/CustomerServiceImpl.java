@@ -9,6 +9,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.transaction.Transactional;
 import mx.org.banxico.jakarta.entity.Customer;
+import mx.org.banxico.jakarta.repository.CustomerRepository;
 import mx.org.banxico.jakarta.repository.Repository;
 
 @RequestScoped
@@ -18,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	//@Inject
 	@EJB(beanName = "customerRepositoryImpl")
-	private Repository<Customer> customerRepository;
+	private CustomerRepository customerRepository;
 	
 	@Override
 	public List<Customer> findAll() {
@@ -57,6 +58,11 @@ public class CustomerServiceImpl implements CustomerService {
 			customerRepository.save(customer);
 		}
 		
+	}
+
+	@Override
+	public List<Customer> findByName(String name) {
+		return customerRepository.findByName(name);
 	}
 
 

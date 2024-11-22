@@ -20,17 +20,22 @@ public class CustomerController {
 
 	@Inject
 	private CustomerService customerService;
-	
 	private List<Customer> customerList;
+	private String name;
 	
 	@PostConstruct
 	public void init() {
 		setCustomerList(customerService.findAll());
 	}
 	
-	public String delete(Integer id) {
+	public void delete(Integer id) {
 		System.out.println("id: " + id);
 		customerService.delete(id);
-		return "index.xhtml?faces-redirect=true";
+		setCustomerList(customerService.findAll());
+		//return "indexpf1.xhtml";
+	}
+	
+	public void findByName() {
+		setCustomerList(customerService.findByName(name));
 	}
 }

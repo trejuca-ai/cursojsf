@@ -31,13 +31,13 @@ public class CustomerFormController implements Serializable {
 	
 	public String save() {
 		customerService.save(customer);
-		return "index-bootstrap.xhtml?faces-redirect=true";
+		return "indexpf1.xhtml";
 	}
 	
 	public String edit(Integer id) {
 		
 		Customer customer = customerService.findById(id);
 		setCustomer(customer);
-		return "form-bootstrap.xhtml";
+		return "formpf1.xhtml";
 	}
 }

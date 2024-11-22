@@ -10,4 +10,5 @@ public interface CustomerService {
 	public void delete(Integer id);
 	public Customer findById(Integer id);
 	public void save(Customer customer);
+	public List<Customer> findByName(String name);
 }

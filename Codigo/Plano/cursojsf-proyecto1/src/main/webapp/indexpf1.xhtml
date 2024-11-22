@@ -13,15 +13,39 @@
 					action="formpf1.xhtml"
 					class=""/>		
 			</h:form>
+			<div class="p-field p-grid">
+				<label for="textoBuscar">Buscar</label>
+				<div class="p-col">
+					<h:form>
+						<p:inputText 
+							id="textoBuscar" 
+							value="#{customerController.name}"
+							placeholder="Ingrese su busqueda"
+							onkeydown="if (event.key == 'Enter') { event.preventDefault(); }">
+							<p:ajax 
+								event="keyup" 
+								listener="#{customerController.findByName}"
+								update="customerForm:customerTable" />
+						</p:inputText>
+					</h:form>
+				</div>
+			</div>
 			<h:outputText
 				value="No existen clientes aun en la base de datos"
 				rendered="#{empty customerController.customerList}"
 				class="" />
-			<h:form>
+			<h:form id="customerForm">
 				<p:dataTable
 					value="#{customerController.customerList}"
 					rendered="#{not empty customerController.customerList}"
-					var="customer">
+					var="customer"
+					id="customerTable"
+					rows="10"
+					paginator="true"
+					paginatorPosition="both"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					currentPageReportTemplate="{startRecord} {endRecord} de {totalRecords} registros"
+					rowsPerPageTemplate="5,10,{ShowAll|'Todos los registros'}">
 					
 					<p:column headerText="#{msg['index.table.column.id']}">
 						<h:outputText value="#{customer.id}"/>
@@ -44,20 +68,24 @@
 					</p:column>
 		
 					<p:column headerText="Acciones">
-							<p:commandLink
+							<p:commandButton
 								id="deleteButton"
 								action="#{customerController.delete(customer.id)}"
-								class="">
-								<h:outputText value="#{msg['index.table.button.delete']}"/>
-							</p:commandLink>
+								class="ui-button-danger"
+								value="#{msg['index.table.button.delete']}"
+								update="customerTable"
+								onclick="return confirm('¿Esta seguro de eliminar el registro?')">
+
+							</p:commandButton>
 					</p:column>
 					<p:column>
-						<p:commandLink
+						<p:commandButton
 							id="updateLink"
 							action="#{customerFormController.edit(customer.id)}"
-							class="">
-							<h:outputText value="#{msg['index.table.button.edit']}"/>
-						</p:commandLink>
+							class="ui-button-success"
+							value="#{msg['index.table.button.edit']}">
+
+						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 			</h:form>
