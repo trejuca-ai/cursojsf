@@ -48,6 +48,34 @@
 				<p:messages globalOnly="true" closable="true"/>
 			</div>
 			<ui:insert name="content"/>
+
+			<p:ajaxExceptionHandler 
+				type="java.lang.NullPointerException"
+				onexception="PF('exceptionDialog').show()"
+				update="exceptionDialog"/>
+				
+			<p:dialog
+				id="exceptionDialog"
+				widgetVar="exceptionDialog"
+				header="Ha ocurrido una excepción"
+				responsive="true"
+				modal="true"
+				showEffect="fade"
+				hideEffect="fade">
+			
+				<h2>Oooops!</h2>
+				<h3>Ha ocurrido un error</h3>
+				
+				<div class="p-grid">
+					<div class="p-col-2">
+						<label>Mensaje de error:</label>
+					</div>
+					<div class="p-col-10">
+						<label>#{pfExceptionHandler.message}</label>
+					</div>
+				</div>
+			</p:dialog>
+			
 			<hr />
 			<footer>
 				<h:graphicImage

@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/mainpf2.xhtml">
+
+	<ui:define name="content">
+	
+    <h:form>
+        <div class="p-grid p-align-center p-justify-center" style="height: 100vh;">
+
+            <div class="p-col-10 p-md-6 p-lg-4 p-shadow-3 p-p-4 p-border-round">
+
+                <div class="p-text-center">
+                    <h1 class="p-text-danger">Oops! Algo salió mal.</h1>
+                </div>
+
+                <div class="p-mt-3 p-text-center">
+                    <p class="p-text-secondary">La página que estás buscando no está disponible o ha ocurrido un error inesperado.</p>
+                </div>
+
+                <div class="p-mt-4">
+	                <div class="p-col-12 p-md-6 p-lg-3 p-p-3">
+	                    <div class="value-box">
+	                        <span class="value-title">Mensaje</span>
+	                        <span class="value-number">#{pfExceptionHandler.message}</span>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+  </ui:define>
+
+</ui:composition>

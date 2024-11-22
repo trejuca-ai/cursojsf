@@ -55,7 +55,7 @@
 						action="#{customerModalController.save()}"
 						ajax="true"
 						update="@form, customerForm:customerTable customerFormModal"
-						oncomplete="PF('customerModal').hide()"
+						oncomplete="if (!args.validationFailed) {PF('customerModal').hide()}"
 						class=""/>
 						
 					<h:inputHidden value="#{customerModalController.customer.id}"/>

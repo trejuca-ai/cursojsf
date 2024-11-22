@@ -30,6 +30,9 @@ public class CustomerModalController {
 	}
 	
 	public void delete(Integer id) {
+		if (true) {
+			throw new RuntimeException("Error ocurrido al eliminar");
+		}
 		System.out.println("id: " + id);
 		customerService.delete(id);
 		setCustomerList(customerService.findAll());

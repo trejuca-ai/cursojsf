@@ -12,7 +12,7 @@
 					value="#{msg['index.button.creaCliente']}"
 					onclick="PF('customerModal').show()"
 					icon="pi pi-plus-circle">
-					<p:resetInput target="customerModal"/>	
+					<p:resetInput target="customerFormModal"/>	
 				</p:commandButton>		
 			</h:form>
 			<div class="p-field p-grid">
@@ -94,6 +94,20 @@
 				</p:dataTable>
 			</h:form>
 		</p:panelGrid>
+		<script>
+			function resetValidations(formId) {
+				const form = document.getElementById(formId)
+				const clase = '.ui-state-error'
+				console.log(form)
+				if (form) {
+					
+					form.querySelectorAll(clase).forEach(nodo => {
+						console.log(nodo)
+						nodo.classList.remove('ui-state-error')
+					})
+				}
+			}
+		</script>
 		<p:dialog
 			header="Creacion de Clientes"
 			widgetVar="customerModal"
@@ -103,7 +117,8 @@
 			resizable="false"
 			draggable="false"
 			closeOnEscape="true"
-			responsive="true">
+			responsive="true" 
+			onShow="resetValidations('customerFormModal')">
 			
 			<p:ajax 
 				event="close" 
