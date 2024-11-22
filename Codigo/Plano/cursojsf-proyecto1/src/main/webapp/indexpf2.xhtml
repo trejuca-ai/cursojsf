@@ -1,0 +1,117 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:h="http://xmlns.jcp.org/jsf/html"
+      			xmlns:f="http://xmlns.jcp.org/jsf/core"
+      			xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      			xmlns:p="http://primefaces.org/ui"
+      			template="/WEB-INF/layouts/mainpf2.xhtml">
+      
+	<ui:define name="content">
+		<p:panelGrid class="" columns="1">
+			<h:form>
+				<p:commandButton
+					value="#{msg['index.button.creaCliente']}"
+					onclick="PF('customerModal').show()"
+					icon="pi pi-plus-circle">
+					<p:resetInput target="customerModal"/>	
+				</p:commandButton>		
+			</h:form>
+			<div class="p-field p-grid">
+				<label for="textoBuscar">Buscar</label>
+				<div class="p-col">
+					<h:form>
+						<p:inputText 
+							id="textoBuscar" 
+							value="#{customerController.name}"
+							placeholder="Ingrese su busqueda"
+							onkeydown="if (event.key == 'Enter') { event.preventDefault(); }">
+							<p:ajax 
+								event="keyup" 
+								listener="#{customerController.findByName}"
+								update="customerForm:customerTable" />
+						</p:inputText>
+					</h:form>
+				</div>
+			</div>
+			<h:outputText
+				value="No existen clientes aun en la base de datos"
+				rendered="#{empty customerModalController.customerList}"
+				class="" />
+			<h:form id="customerForm">
+				<p:dataTable
+					value="#{customerModalController.customerList}"
+					rendered="#{not empty customerModalController.customerList}"
+					var="customer"
+					id="customerTable"
+					rows="10"
+					paginator="true"
+					paginatorPosition="both"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					currentPageReportTemplate="{startRecord} {endRecord} de {totalRecords} registros"
+					rowsPerPageTemplate="5,10,{ShowAll|'Todos los registros'}">
+					
+					<p:column headerText="#{msg['index.table.column.id']}">
+						<h:outputText value="#{customer.id}"/>
+					</p:column>
+		
+					<p:column headerText="#{msg['index.table.column.firstName']}">
+						<h:outputText value="#{customer.firstName}"/>
+					</p:column>
+		
+					<p:column headerText="#{msg['index.table.column.lastName']}">
+						<h:outputText value="#{customer.lastName}"/>
+					</p:column>
+					
+					<p:column headerText="#{msg['index.table.column.email']}">
+						<h:outputText value="#{customer.email}"/>
+					</p:column>
+					
+					<p:column headerText="#{msg['index.table.column.email']}">
+						<h:outputText value="#{customer.active.toString() == '1' ? 'Activo' : 'Inactivo'}"/>
+					</p:column>
+		
+					<p:column headerText="Acciones">
+							<p:commandButton
+								id="deleteButton"
+								action="#{customerModalController.delete(customer.id)}"
+								class="ui-button-danger"
+								value="#{msg['index.table.button.delete']}"
+								update="customerTable"
+								onclick="return confirm('¿Esta seguro de eliminar el registro?')">
+
+							</p:commandButton>
+					</p:column>
+					<p:column>
+						<p:commandButton
+							id="updateLink"
+							action="#{customerModalController.edit(customer.id)}"
+							class="ui-button-success"
+							onclick="PF('customerModal').show()"
+							update="customerFormModal"
+							value="#{msg['index.table.button.edit']}">
+							<p:resetInput target="customerFormModal"/>
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</p:panelGrid>
+		<p:dialog
+			header="Creacion de Clientes"
+			widgetVar="customerModal"
+			showEffect="fade"
+			modal="true"
+			dynamic="true"
+			resizable="false"
+			draggable="false"
+			closeOnEscape="true"
+			responsive="true">
+			
+			<p:ajax 
+				event="close" 
+				listener="#{customerModalController.reset}"
+				update="customerFormModal"/>
+				
+			<ui:include src="formpf2.xhtml"/>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
+      

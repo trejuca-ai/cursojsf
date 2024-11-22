@@ -8,6 +8,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.transaction.Transactional;
+import mx.org.banxico.jakarta.entity.Address;
 import mx.org.banxico.jakarta.entity.Customer;
 import mx.org.banxico.jakarta.repository.CustomerRepository;
 import mx.org.banxico.jakarta.repository.Repository;
@@ -48,7 +49,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void save(Customer customer) {
-		customer.setAddressId(1);
+		//customer.setAddressId(1);
+		Address direccion = new Address();
+		direccion.setId(1);
+		
+		customer.setAddress(direccion);
 		customer.setStoreId(1);
 		customer.setActive('1');
 		
