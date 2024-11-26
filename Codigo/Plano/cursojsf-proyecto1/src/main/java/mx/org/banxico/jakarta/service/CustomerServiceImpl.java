@@ -5,13 +5,10 @@ import java.util.Optional;
 
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import jakarta.transaction.Transactional;
 import mx.org.banxico.jakarta.entity.Address;
 import mx.org.banxico.jakarta.entity.Customer;
 import mx.org.banxico.jakarta.repository.CustomerRepository;
-import mx.org.banxico.jakarta.repository.Repository;
 
 @RequestScoped
 @Named

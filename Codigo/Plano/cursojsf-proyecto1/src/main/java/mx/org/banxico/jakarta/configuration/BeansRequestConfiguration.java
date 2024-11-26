@@ -3,7 +3,6 @@ package mx.org.banxico.jakarta.configuration;
 import jakarta.enterprise.context.Dependent;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Produces;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import mx.org.banxico.jakarta.entity.Customer;
 import mx.org.banxico.jakarta.service.AddressServiceImpl;

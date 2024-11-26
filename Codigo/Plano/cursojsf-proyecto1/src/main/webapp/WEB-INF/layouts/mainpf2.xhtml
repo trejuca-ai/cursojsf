@@ -45,7 +45,7 @@
 				</p:menuitem> 	
 			</p:menubar>
 			<div class="p-mt-3">
-				<p:messages globalOnly="true" closable="true"/>
+				<p:growl widgetVar="mensaje" showDetail="true" />
 			</div>
 			<ui:insert name="content"/>
 
@@ -75,7 +75,8 @@
 					</div>
 				</div>
 			</p:dialog>
-			
+
+				
 			<hr />
 			<footer>
 				<h:graphicImage

@@ -5,11 +5,9 @@ import java.util.List;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.inject.Model;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import lombok.Getter;
 import lombok.Setter;
 import mx.org.banxico.jakarta.entity.Customer;
-import mx.org.banxico.jakarta.service.AddressService;
 import mx.org.banxico.jakarta.service.CustomerService;
 
 @Model

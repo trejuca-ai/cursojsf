@@ -127,6 +127,31 @@
 				
 			<ui:include src="formpf2.xhtml"/>
 		</p:dialog>
+
+		<script>
+		
+			const websocket = new WebSocket(
+					'ws://localhost:8080/cursojsf-proyecto1/customersocket')
+			
+			websocket.onopen = function(event) {
+				console.log('ahora si se establecio conexion del cliente')
+			}
+			
+			websocket.onmessage = function(event) {
+
+				PrimeFaces.ab({
+					source: 'customerForm:customerTable',
+					update: 'customerForm:customerTable'
+				});
+				const msg = {
+				    summary: 'Notificación',
+				    detail: 'Se ha actualizado su panel',
+				    severity: 'info'
+				};
+
+				PF('mensaje').renderMessage(msg);
+			}
+		</script>
 	</ui:define>
 </ui:composition>
       

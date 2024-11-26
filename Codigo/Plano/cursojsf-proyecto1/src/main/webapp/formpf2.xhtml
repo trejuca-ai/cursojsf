@@ -6,60 +6,68 @@
       
 
 			<h:form id="customerFormModal">
-				<p:panelGrid columns="3" class="">
-					<h:outputText
-						value="#{msg['form.field.firstName']}"
-						for="firstName"
-						class=""/>
-					<p:inputText
-						id="firstName"
-						value="#{customerModalController.customer.firstName}"
-						class=""/>
-					<p:message for="firstName"/>
-					
-					<h:outputText
-						value="#{msg['form.field.lastName']}"
-						for="lastName"
-						class=""/>
-					<p:inputText
-						id="lastName"
-						value="#{customerModalController.customer.lastName}"
-						class=""/>
-					<p:message for="lastName"/>
-					
-					<h:outputText
-						value="#{msg['form.field.email']}"
-						for="email"
-						class=""/>
-					<p:inputText
-						id="email"
-						value="#{customerModalController.customer.email}"
-						class=""/>
-					<p:message for="email"/>
-					
-					<h:outputText
-						value="Fecha de creacion"
-						for="createDate"
-						class=""/>
-					<p:datePicker
-						id="createDate"
-						value="#{customerModalController.customer.createDate}"
-						showIcon="true"
-						showButtonBar="true"
-						pattern="dd/MM/yyyy">
-						
-					</p:datePicker>
-					
-					<p:commandButton
-						value="Guardar"
-						action="#{customerModalController.save()}"
-						ajax="true"
-						update="@form, customerForm:customerTable customerFormModal"
-						oncomplete="if (!args.validationFailed) {PF('customerModal').hide()}"
-						class=""/>
-						
-					<h:inputHidden value="#{customerModalController.customer.id}"/>
-				</p:panelGrid>
+				<div class="formgrid grid">
+				    <div class="field col">
+						<h:outputText
+							value="#{msg['form.field.firstName']}"
+							for="firstName"
+							class=""/>
+						<p:inputText
+							id="firstName"
+							value="#{customerModalController.customer.firstName}"
+							class="text-base text-color surface-overlay border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+						<p:message for="firstName" styleClass="mt-2"/>
+				    </div>
+				    <div class="field col">
+						<h:outputText
+							value="#{msg['form.field.lastName']}"
+							for="lastName"
+							class=""/>
+						<p:inputText
+							id="lastName"
+							value="#{customerModalController.customer.lastName}"
+							class="text-base text-color surface-overlay border-solid surface-border focus:border-primary w-full"/>
+						<p:message for="lastName" styleClass="mt-2"/>
+				    </div>
+				</div>
+				<div class="formgrid grid">
+				    <div class="field col">
+						<h:outputText
+							value="#{msg['form.field.email']}"
+							for="email"
+							class=""/>
+						<p:inputText
+							id="email"
+							value="#{customerModalController.customer.email}"
+							class="text-base text-color surface-overlay border-solid surface-border focus:border-primary w-full"/>
+						<p:message for="email" styleClass="mt-2"/>
+				    </div>
+				    <div class="field col">
+						<h:outputText
+							value="Fecha de creacion"
+							for="createDate"
+							class=""/>
+						<p:datePicker
+							id="createDate"
+							value="#{customerModalController.customer.createDate}"
+							showIcon="true"
+							showButtonBar="true"
+							pattern="dd/MM/yyyy">
+						</p:datePicker>
+				    </div>
+				</div>
+				<div class="formgrid grid">
+				    <div class="field col w-full">
+						<p:commandButton
+							value="Guardar"
+							action="#{customerModalController.save()}"
+							ajax="true"
+							update="@form, customerForm:customerTable customerFormModal"
+							oncomplete="if (!args.validationFailed) {PF('customerModal').hide()}"
+							class=""/>
+						<h:inputHidden value="#{customerModalController.customer.id}"/>
+				    </div>
+				</div>
 			</h:form>
 
 

@@ -3,9 +3,7 @@ package mx.org.banxico.jakarta.repository;
 import java.util.List;
 
 import jakarta.ejb.Stateless;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.Query;
-import jakarta.transaction.Transactional;
 import mx.org.banxico.jakarta.entity.Customer;
 
 //@Transactional(Transactional.TxType.REQUIRED)

@@ -1,8 +1,6 @@
 package mx.org.banxico.jakarta.service;
 
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import mx.org.banxico.jakarta.entity.Customer;

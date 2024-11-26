@@ -7,10 +7,7 @@
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
 	
-	<context-param>
-	    <param-name>primefaces.THEME</param-name>
-	    <param-value>vela</param-value>
-	</context-param>
+
 	
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
@@ -27,4 +24,14 @@
 		<exception-type>java.lang.RuntimeException</exception-type>
 		<location>/error.xhtml</location>
 	</error-page>
+		
+	<context-param>
+		<param-name>jakarta.faces.ENABLE_WEBSOCKET_ENDPOINT</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>jakarta.faces.WEBSOCKET_ENDPOINT_PORT</param-name>
+		<param-value>8080</param-value>
+	</context-param>
 </web-app>

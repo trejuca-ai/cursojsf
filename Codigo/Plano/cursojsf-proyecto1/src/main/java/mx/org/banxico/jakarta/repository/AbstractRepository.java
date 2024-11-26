@@ -3,7 +3,6 @@ package mx.org.banxico.jakarta.repository;
 import java.util.List;
 import java.util.Optional;
 
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
